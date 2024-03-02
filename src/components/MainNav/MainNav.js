@@ -56,10 +56,10 @@ export function MainNav({ navLinks }) {
                 <div className={style.navWrapperMobile}>
                     <div className={style.mobileNavWrapper}>
                         <PageLink label={'ICON'} path='/'>ICON</PageLink>
-                        <button onClick={toggleMenu}>{!showMenu ? <Close /> : <Hamburger />}</button>
+                        <button onClick={toggleMenu}>{showMenu ? <Close /> : <Hamburger />}</button>
                     </div>
 
-                    <div className={showMenu ? style.hide : style.mobileNavLinks}>
+                    <div className={showMenu ? style.mobileNavLinks : style.hide}>
                         <ul className={style.mobileLinkList}>
                             {navLinks.map(link => (
                                 <li key={link.id}>
@@ -67,7 +67,7 @@ export function MainNav({ navLinks }) {
                                 </li>
                             ))}
                         </ul>
-                        {!showMenu && (
+                        {showMenu && (
                             <div className={style.mobileFooter}>
                                 <div>
                                     <p>60 Grant Ave. Carteret NJ 0708</p>

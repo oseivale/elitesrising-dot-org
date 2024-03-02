@@ -44,3 +44,14 @@
 .imageWrapper{
     margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 600px) {
+    .ctaWrapper a{
+        display: block;
+    }
+
+    .rowWrapper{
+        margin-top: 4rem;
+    }
+
+}

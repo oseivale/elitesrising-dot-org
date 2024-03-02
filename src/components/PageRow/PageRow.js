@@ -30,7 +30,7 @@ export function PageRow({ rowColumns, header, subheader, bodyCopy }) {
                                 )}
 
                                 {rowColumn.ctas && (
-                                    <div>
+                                    <div className={style.ctaWrapper}>
                                         {rowColumn.ctas.map(cta => (
                                             <PageLink key={2} label={cta.label} path={cta.path} className={cta.btnClass} />
                                         ))}
