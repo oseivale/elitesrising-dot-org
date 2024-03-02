@@ -3,25 +3,103 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Brand Pallette */
+  --brand-blue: #090d91;
+  --brand-yellow: #ffff00;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+
+  /* Button Styles */
+  --button-border-primary: 1px solid var(--brand-blue);
+  --button-hover-primary: #4044CD;
+
+  --brand-font: "Arimo", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Typography */
+
+/* Grid System */
+.col-1 {
+  width: 100%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.col-2 {
+  width: 50%;
+}
+
+/* Content */
+/* main {
+  height: 100vh;
+} */
+
+
+.btn-primary {
+  background-color: var(--brand-blue);
+  color: var(--brand-white);
+  border: solid 1.5px var(--brand-blue);
+  border-radius: 10px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  transition: all 350ms;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: var(--brand-font);
+  margin: .85rem;
+}
+
+.btn-primary:hover{
+  background-color: var( --button-hover-primary);
+}
+
+.btn-link-secondary {
+  background-color: var(--brand-white);
+  color: var(--brand-black);
+  border-radius: 40px;
+  padding: .5rem 2.5rem;
+  font-size: 1.1rem;
+  transition: all 350ms;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: var(--brand-font);
+}
+
+.btn-link-secondary:hover{
+  color: var(--brand-blue);
+  background-color: var(--brand-yellow);
+}
+
+.btn-link{
+  color: var(--brand-blue);
+  font-size: 1.3rem;
+  transition: all 350ms;
+}
+
+.btn-link:hover,.btn-link-white:hover{
+  border-bottom: 2px solid white;
+ 
+}
+
+.btn-link-white{
+  color: var(--brand-white);
+  font-size: 1.3rem;
+  transition: all 350ms;
+}
+
+.btn-outlined {
+  background-color: var(--brand-white);
+  color:  var(--brand-blue);
+  border: solid 1.5px var(--brand-blue);
+  border-radius: 10px;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  transition: all 350ms;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: var(--brand-font);
+  margin: .85rem;
+}
+
+.btn-outlined:hover{
+  background-color: var(--brand-blue);
+  color: var(--brand-white);
 }

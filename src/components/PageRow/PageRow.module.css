@@ -1,0 +1,46 @@
+.sectionContainer{
+    padding: 2rem;
+}
+
+.pageRowGridWrapper{
+    display: flex;
+}
+
+.rowWrapper{
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.columnWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerWrapper{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.headerWrapper h1{
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.headerWrapper h2{
+    font-size: 1.3rem;
+}
+
+.textWrapper{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.textWrapper h1{
+    font-size: 1.5rem;
+}
+
+.imageWrapper{
+    margin-bottom: 2rem;
+}
