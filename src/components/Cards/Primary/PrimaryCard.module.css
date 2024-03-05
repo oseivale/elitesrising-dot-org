@@ -1,0 +1,41 @@
+.cardContainer{
+    border: 1px solid #EBEDEF;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 1rem;
+    height: auto;
+    width: 330px;
+}
+
+.imageWrapper img {
+    border-top-right-radius: 5px;  
+    border-top-left-radius: 5px;
+}
+
+.textWrapper{
+    padding: .5rem
+}
+
+.textWrapper h1 {
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+.textWrapper h2{
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: grey;
+}
+
+.textWrapper p{
+    margin-top: .5rem;
+}
+
+.ctaWrapper a{
+    display: inline-block;
+}
+
+.ctaWrapper {
+    padding: .5rem;
+}

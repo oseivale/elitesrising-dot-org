@@ -4,6 +4,7 @@
 
 .pageRowGridWrapper{
     display: flex;
+   
 }
 
 .rowWrapper{
@@ -16,6 +17,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.columnWrapper a{
+    margin: .85rem;
 }
 
 .headerWrapper{
@@ -52,6 +57,93 @@
 
     .rowWrapper{
         margin-top: 4rem;
+    }
+
+    .pageRowGridWrapper{
+        flex-direction: column;
+    }
+
+    .columnWrapper {
+        min-height: 15rem;
+    }
+
+}
+
+/* Row Specific Styles */
+
+#twoColumn {
+    padding: 0;
+}
+#twoColumn .textWrapper{
+    text-align: left;
+    padding: .85rem;
+}
+
+#twoColumn .textWrapper h1{
+    font-size: 2.7rem;
+    font-weight: bold;
+}
+
+
+#twoColumn .textWrapper h2 {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    color: grey;
+}
+
+#twoColumn .textWrapper p {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+#twoColumn .columnWrapper {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 3rem;
+}
+
+#twoColumn .columnWrapper .ctaWrapper {
+    margin-bottom: 4rem;
+}
+
+#twoColumn .rowWrapper{
+    max-width: 100%;
+}
+
+#oneColumn {
+    display: flex;
+    background-color: #F2F4F4;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+    .ctaWrapper a{
+        display: block;
+    }
+
+    .rowWrapper{
+        margin-top: 4rem;
+    }
+
+    #twoColumn .columnWrapper{
+        width: 100%;
+        padding: 0;
+    }
+
+    #oneColumn {
+       height: auto;
+    }
+
+    #twoColumn .textWrapper {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    #twoColumn .columnWrapper {
+        display: flex;
+        align-items: center;
     }
 
 }
