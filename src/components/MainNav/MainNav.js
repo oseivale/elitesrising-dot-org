@@ -124,11 +124,11 @@ export function MainNav({ navLinks }) {
                         {navLinks.map(navLink => {
                             return (
                                 <li className={`${style.linkWrapper} ${nunito_sans.className}`} key=''>
-                                    <Link href={navLink.path}>{navLink.label}</Link>
+                                    <Link className={style.navLink} href={navLink.path}>{navLink.label}</Link>
                                 </li>
                             )
                         })}
-                        <PageLink className={style.donate} label={'DONATE'} path='#' />
+                        <Link className={style.donate} label={'DONATE'} href='#'>DONATE</Link>
                     </ul>
                 </div>
             </nav>
