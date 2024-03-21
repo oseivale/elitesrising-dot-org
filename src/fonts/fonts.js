@@ -1,4 +1,4 @@
-import { Arimo, Nunito_Sans, Raleway, Shantell_Sans, Gruppo, Staatliches } from 'next/font/google'
+import { Arimo, Nunito_Sans, Raleway, Shantell_Sans, Gruppo, Staatliches, Candal, Truculenta, Titillium_Web } from 'next/font/google'
 
 
 export const arimo = Arimo({
@@ -37,6 +37,20 @@ export const grupo = Gruppo({
 })
 
 export const staatliches = Staatliches({
+    weight: ['400'],
+    style: ['normal'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+
+export const candal = Candal({
+    weight: ['400'],
+    style: ['normal'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+
+export const titillium_web = Titillium_Web({
     weight: ['400'],
     style: ['normal'],
     subsets: ['latin'],

@@ -49,8 +49,16 @@
 .imageWrapper{
     margin-bottom: 2rem;
 }
+.headerWrapper{
+    margin: 0;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
+   
+
     .ctaWrapper a{
         display: block;
     }
