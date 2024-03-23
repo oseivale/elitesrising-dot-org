@@ -2,11 +2,27 @@
     width: 100%;
 }
 
+.heroImgWrapper {
+    background-image: linear-gradient(to left, rgba(0, 0,0,.5), rgba(0, 0,0,.5))
+}
+
+.heroImg{
+    position: relative;
+    top: 0;
+    z-index: -2;
+    background-size: cover;
+    background-image: url('/siviwe-kapteyn-tCvDVszXdHE-unsplash.jpg');
+    height: 30vh;
+}
+
 .textWrapper{
-    padding: 2rem 1rem;
-    background-color: var(--brand-blue);
+    padding: 3rem 1rem;
+    background-image: linear-gradient(to left, rgba(2, 9, 82, 0.93), rgba(2, 9, 82, 0.93)), url("/pattern_circles-8_1_3_0-0_20_1__ffffff_805ad5 (1).jpg");
+    background-size: cover;
+    /* background-color: var(--brand-blue); */
     color: var(--brand-white);
     text-align: center;
+    height: 30vh
 }
 
 .textWrapper h1 {
@@ -24,6 +40,12 @@
 }
 
 @media screen and (min-width: 740px) {
+    /* .heroImgWrapper {
+        display: none;
+    } */
+    .heroImgWrapper {
+        background: transparent;
+    }
 
     .textWrapper h1 {
         font-size: 3rem;
@@ -47,12 +69,14 @@
 
     .textWrapper{
         position: relative;
-        bottom: 60%;
-        margin-left: 3.2rem;
+        bottom: 70%;
+        margin: 0 auto;
+        max-width: 1080px;
         color: var(--brand-white);
         text-align: left;
-        background-color: transparent;
+        background: transparent;
     }
+
 
     .textWrapper h1 {
         font-size: 5rem;

@@ -1,5 +1,7 @@
 .pageHeader {
     background-image: linear-gradient(to left, rgba(2, 9, 82, 0.93), rgba(2, 9, 82, 0.93)), url("/pattern_circles-8_1_3_0-0_20_1__ffffff_805ad5 (1).jpg");
+    /* background-image: linear-gradient(to left, rgba(236, 236, 236, 0.93), rgba(236, 236, 236, 0.93)), url("/pattern_circles-8_1_3_0-0_20_1__ffffff_805ad5 (1).jpg"); */
+     /* background-image: linear-gradient(to left, rgba(222, 222, 49 , 0.93), rgba(222, 222, 49 , 0.93)), url("/pattern_circles-8_1_3_0-0_20_1__ffffff_805ad5 (1).jpg"); */
     background-size: cover;
     height: 60vh;
     width: 100%;
@@ -11,7 +13,7 @@
 
   .content  {
     margin: 3rem auto;
-    width: 90%;
+    width: 100%;
   }
 
   .content h1{
@@ -20,6 +22,7 @@
     font-weight: 600;
     padding: 0;
     margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 
 .content p {
@@ -27,12 +30,14 @@
     font-size: 1.2rem;
     line-height: 30px;
     letter-spacing: .5px;
+    margin: 0 auto;
+    width: 90%;
 }
 
   .contentWrapper {
     display: flex;
     flex-direction: column-reverse;
-    width: 90%;
+    width: 100%;
   }
 
   .sideBar{
@@ -87,18 +92,33 @@
     background-color: var(--brand-white);
 }
 
-/* .imageWrapper{
+.imageWrapper{
     display: none;
-} */
+}
+
+.mobileHeaderImg{
+    position: relative;
+    height: 25vh;
+    width: 100vw;
+    object-fit: cover;
+    top: 6.75rem;
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+    border: solid 1px white;
+}
 
   @media screen and (min-width: 740px) {
     .pageHeader{
         display: flex;
         flex-direction: column;
+        
+    }
+    .mobileHeaderImg {
+        display: none;
     }
     
       .headerWrapper h1 {
-        font-size: 4.5rem;
+        font-size: 4.3rem;
         font-weight: 300;
         color: var(--brand-white);
         text-align: left;
@@ -139,16 +159,8 @@
         font-size: 1.2rem;
         line-height: 30px;
         letter-spacing: .5px;
-    }
-
-    .imageWrapper {
-        position: absolute;
-        right: -13rem;
-        top: -8rem;
-        height: 65vh;
-        width: 70vh;
-        background-color: var(--brand-white);
-        border-radius: 100%;
+        width: 100%;
+        margin-left: 1rem;
     }
 
     .contentWrapper {
@@ -160,7 +172,7 @@
 
       .headerWrapper{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 4fr 5fr;
         margin: 0 auto;
         max-width: 1080px;
         color: var(--brand-white);
@@ -184,9 +196,16 @@
       .imageWrapper{
         background-image: url('/zachary-nelson-98Elr-LIvD8-unsplash (1).jpg');
         background-size: cover;
-        background-position-x: 65%;
+        background-position: right center;
         top: .25rem;
         clip-path: ellipse(2000px 400px at 55% 23%);  
+        position: absolute;
+        right: -13rem;
+        height: 65vh;
+        width: 80vh;
+        border-radius: 100%;
+        display: block;
+        border: solid 10px white
       }
     }
 

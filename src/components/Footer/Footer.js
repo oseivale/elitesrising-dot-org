@@ -2,6 +2,9 @@ import Image from "next/image"
 import { PageLink } from "../PageLink/PageLink"
 import style from './Footer.module.css'
 import { nunito_sans } from "@/fonts/fonts"
+import { Facebook } from "@/icons/facebook"
+import { LinkedIn } from "@/icons/linkedin"
+import { Instagram } from "@/icons/instagram"
 
 export function Footer({ footerLinks, socialLogos, brandLogo }) {
     return (
@@ -11,6 +14,18 @@ export function Footer({ footerLinks, socialLogos, brandLogo }) {
                     <p>60 Grant Ave. Carteret NJ 0708</p>
                     <p>(880) 1723801729</p>
                     <p>example@gmail.com</p>
+                    <div className={style.socialLinksContainer}>
+                        <h1>Stay Connected</h1>
+                        <div className={style.socialLinksWrapper}>
+                            <div>
+                                <Facebook />
+                            </div>
+                            <div><LinkedIn /></div>
+                            <div><Instagram /></div>
+
+                        </div>
+
+                    </div>
                 </div>
                 <div className={`${style.mobileLinkList} ${nunito_sans.className}`}>
                     <h1>Quick Links</h1>

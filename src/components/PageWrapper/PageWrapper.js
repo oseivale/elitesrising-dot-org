@@ -2,13 +2,18 @@ import Link from 'next/link'
 import style from './PageWrapper.module.css'
 import { arimo, candal, nunito_sans, raleway, titillium_web } from '@/fonts/fonts'
 import { Truculenta } from 'next/font/google'
+import Image from 'next/image'
 
-export function PageWrapper() {
+export function PageWrapper({ pageHeader, children, pageHeaderImg }) {
     return (
         <div className={style.pageContainer}>
             <section className={style.pageHeader}>
-                <div className={`${candal.className} ${style.headerWrapper}`}><h1>About Us</h1></div>
-                <div className={style.imageWrapper}></div>
+                <div className={`${candal.className} ${style.headerWrapper}`}><h1>{pageHeader}</h1></div>
+                <div style={{ backgroundImage: `url(${pageHeaderImg})` }} className={style.imageWrapper}></div>
+                <div className={style.mobileHeaderImgWrapper}>
+                    <Image className={style.mobileHeaderImg} alt='' src={pageHeaderImg} height={200} width={200} />
+                </div>
+
 
             </section>
             <div className={style.contentWrapper}>
@@ -27,8 +32,7 @@ export function PageWrapper() {
                     </div>
                 </aside>
                 <div className={style.content}>
-                    <h1 className={nunito_sans.className}>Who we are</h1>
-                    <p className={titillium_web.className}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    {children}
                 </div>
             </div>
         </div>

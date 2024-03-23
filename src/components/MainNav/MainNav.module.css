@@ -27,7 +27,6 @@
     justify-content: space-between;
     z-index: 2;
     padding: 1rem;
-    
 }
 
 .mobileNavWrapper button {
@@ -49,7 +48,7 @@
 .close {
     z-index: 2;
     height: 8vh;
-    background-color: var( --brand-light-blue);
+    /* background-color: rgb(2, 9, 82); */
     animation: collapseMobileNav 450ms ease-in-out;
 }
 
@@ -75,8 +74,34 @@
 }
 
 .navLogo {
-    position: relative;
-    top: 1rem;
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+    /* top: 1rem; */
+}
+
+.navLogo svg {
+    font-size: 4rem;
+    margin-right: 2rem;
+    color: var(--brand-white)
+}
+
+@keyframes fadeOutNav {
+    from {
+        height: 8vh;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@keyframes fadeInNav {
+    from {
+        height: 0;
+    }
+    to {
+        height: 8vh;
+    }
 }
 
 @keyframes expandMobileNav {
@@ -115,8 +140,16 @@
     }
 }
 
+.mobileNavContainer{
+    display: none;
+}
+
+.coloredNavWrapper {
+    display: none;
+}
+
 @media screen and (min-width: 740px) {
-    .mobileNavWrapper, .open, .close {
+    .mobileNavWrapper, .mobileNavWrapper a, .open, .close {
         display: none;
     }
 
@@ -126,7 +159,13 @@
         left: 0;
         width: 100%;
         z-index: 2;
-        background-color: var(--brand-light-blue);
+        /* background-color: var(--brand-blue); */
+        /* background-color: rgb(2, 9, 82); */
+        display: block;
+    }
+
+    .coloredNavWrapper {
+        display: none;
     }
 
     .donate {
@@ -141,14 +180,14 @@
 
     .navWrapper {
         display: flex;
-        width: auto;
         align-items: center;
-        background-color: var(--brand-light-blue);
+        /* background-color: var(--brand-blue); */
         justify-content: flex-start;
         z-index: 2;
         max-width: 1080px;
         margin: 0 auto;
         width: 100%;
+        height: 13vh;
     }
 
     .navWrapper ul {
