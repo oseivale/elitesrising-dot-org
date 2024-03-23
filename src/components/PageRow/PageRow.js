@@ -9,11 +9,13 @@ export function PageRow({ rowColumns, header, subheader, bodyCopy, id }) {
     return (
         <section className={style.sectionContainer} id={style[`${id}`]}>
             <div className={style.rowWrapper}>
-                <div className={style.headerWrapper}>
-                    <h1>{header}</h1>
-                    <h2>{subheader}</h2>
-                    <p>{bodyCopy}</p>
-                </div>
+                {!header || !subheader || !bodyCopy && (
+                    <div className={style.headerWrapper}>
+                        <h1>{header}</h1>
+                        <h2>{subheader}</h2>
+                        <p>{bodyCopy}</p>
+                    </div>
+                )}
                 <div className={style.pageRowGridWrapper}>
                     {rowColumns.map(rowColumn => {
                         return (

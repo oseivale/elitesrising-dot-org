@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  overflow-x: hidden;
+}
 
 :root {
   /* Brand Pallette */
@@ -8,6 +11,7 @@
   --brand-yellow: #ffff00;
   --brand-white: #ffffff;
   --brand-black: #000000;
+  --text-grey: #273746;
 
   /* Button Styles */
   --button-border-primary: 1px solid var(--brand-blue);
@@ -15,6 +19,7 @@
 
   --brand-font: "Arimo", sans-serif;
 }
+
 
 /* Typography */
 
