@@ -94,7 +94,7 @@ export default function Home() {
     >
         {/* <MainNav navLinks={[{ label: 'Home', path: '#' }, { label: 'About', path: '#' }, { label: 'Events', path: '#' }]} /> */}
         <HeroBanner />
-        <PageRow rowColumns={columns} header={'THE BEST TIME TO PLANT TREE IS NOW'} subheader={'Some Lorem Ipsum Subtitle Will Be Here Ipsum Dolor'} id='oneColumn' />
+          <PageRow rowColumns={columns} header={'THE JOURNEY BEGINS'} subheader={`“we delight in the beauty of the butterfly, but rarely admit the changes it has gone through to achieve that beauty.”`} bodyCopy={'– Maya Angelou'} id='oneColumn' />
         <PageRow rowColumns={twoColumns} id='twoColumn' />
         <PageRow rowColumns={columns} header={'THE BEST TIME TO PLANT TREE IS NOW'} subheader={'Some Lorem Ipsum Subtitle Will Be Here Ipsum Dolor'} id='oneColumn' />
         <PrimaryCard cardImageSrc={'https://cc-prod.scene7.com/is/image/CCProdAuthor/What-is-Stock-Photography_P1_mobile?$pjpeg$&jpegSize=200&wid=720'} cardImageAltText={'alt text'} cardCtaPath={'#'} cardLabel='Learn more' cardHeader={'card header'} cardSubheader={'subheader'} cardBodyCopy={'Text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text...'} />
