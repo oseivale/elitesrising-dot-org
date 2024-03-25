@@ -2,18 +2,17 @@ import { useState, useEffect } from 'react';
 import styles from './Calendar.module.css'; // Import CSS module for styling
 import { nunito_sans } from '@/fonts/fonts';
 import { events } from '../data';
-import { CalendarIcon } from '@/icons/calendar';
 import { Clock } from '@/icons/clock';
 import { Location } from '@/icons/location';
-import { Info } from '@/icons/info';
 import { Alert } from '@/icons/alert';
 import Link from 'next/link';
+import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay } from 'date-fns';
 
 const Calendar = () => {
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedEvents, setSelectedEvents] = useState(null)
-    const [formattedCurrentDate, setFormattedCurrentDate] = useState('')
-    const [todaysEvent, setTodaysEvent] = useState('')
+    // const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+    const [selectedEvents, setSelectedEvents] = useState(null);
     const [eventsForSelectedDate, setEventsForSelectedDate] = useState([]);
 
     useEffect(() => {
@@ -21,35 +20,34 @@ const Calendar = () => {
         const eventsForToday = filterEventsByDate(events, currentDate);
         setEventsForSelectedDate(eventsForToday);
         setSelectedDate(currentDate);
+        console.log('eventsForToday', eventsForToday)
     }, []);
 
     const filterEventsByDate = (events, date) => {
         const filteredEvents = events.filter(event => {
-            const eventDate = new Date(event.date);
-            const formattedDate = `${eventDate.getFullYear()}-${eventDate.getMonth() + 1}-${eventDate.getDate()}`;
-
-            return eventDate.toDateString() === date.toDateString();
+            console.log('events line 28', events)
+            const eventDate = new Date(event.formattedDate);
+            console.log('eventDate line 30', eventDate)
+            return isSameDay(eventDate, date);
         });
+
+        console.log('filteredEvents', filteredEvents)
 
         return filteredEvents.length > 0 ? filteredEvents : null;
     };
 
-
-
-
     const handleDayClick = (day) => {
         setSelectedDate(day);
         const eventsForSelectedDate = filterEventsByDate(events, day);
-        setSelectedEvents(eventsForSelectedDate)
+        setSelectedEvents(eventsForSelectedDate);
         setEventsForSelectedDate(eventsForSelectedDate);
-        // You can perform additional actions with the filtered events
-        // You can perform additional actions here when a day is clicked
     };
 
     const generateCalendarDays = (year, month) => {
         const days = [];
         const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const currentDate = new Date();
 
         // Add empty squares for days before the start of the month
         for (let i = 0; i < firstDayOfMonth; i++) {
@@ -62,15 +60,13 @@ const Calendar = () => {
             days.push(
                 <div
                     key={i}
-                    className={`${styles.day} ${date.getDate() === currentDate.getDate() ? styles.currentDate : ''} ${selectedDate && date.toDateString() === selectedDate.toDateString() ? styles.selected : ''}`}
+                    className={`${styles.day} ${isSameDay(date, currentDate) ? styles.currentDate : ''} ${selectedDate && isSameDay(date, selectedDate) ? styles.selected : ''}`}
                     onClick={() => handleDayClick(date)}
                 >
                     {i}
                 </div>
             );
         }
-
-        console.log('formatCurrentDate()', formattedCurrentDate)
 
         // Calculate the number of empty squares at the end of the month
         const lastDayOfMonth = new Date(year, month + 1, 0).getDay();
@@ -84,39 +80,23 @@ const Calendar = () => {
         return days;
     };
 
-
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth();
 
-
-    // const test = events?.filter(event => event.date === formattedCurrentDate[0].date)
-
-    // console.log('Todayyyy', test)
+    console.log('eventsForSelectedDate', eventsForSelectedDate)
+    console.log('currentYear', currentYear)
+    console.log('currentMonth', currentMonth)
 
     return (
         <div className={`${styles.calendar} ${nunito_sans.className}`}>
-
             <div className={styles.calendarContentContainer}>
-
-                {/* <div>
-                    {selectedEvents?.map(selectedEvent => {
-                        return (
-                            <div key={selectedEvent.id}>
-                                <h1>{selectedEvent.title}</h1>
-                                <p>{selectedEvent.description}</p>
-                            </div>
-                        )
-                    })}
-                </div> */}
                 <div className={`${styles.eventWrapper} ${nunito_sans.className}`}>
-
                     {eventsForSelectedDate ? (
                         <div className={styles.eventContent}>
-                            {/* <h1>{selectedDate?.toDateString()}</h1> */}
                             <div className={styles.selectedDate}>
-                                <h3 className={styles.selectedDateMonth}>{`${currentDate.toLocaleString('default', { month: 'short' })}`}</h3>
-                                <h3 className={styles.selectedDateDay}>{`${selectedDate?.getDate()}`}</h3>
+                                <h3 className={styles.selectedDateMonth}>{format(currentDate, 'MMM')}</h3>
+                                <h3 className={styles.selectedDateDay}>{format(selectedDate, 'd')}</h3>
                             </div>
                             {eventsForSelectedDate.map(event => (
                                 <div className={styles.eventInfo} key={event.id}>
@@ -136,10 +116,15 @@ const Calendar = () => {
                             ))}
                         </div>
                     ) : (
-                        <p className={styles.noEventDescription}><Alert />No events for {selectedDate?.toDateString()}</p>
+                            <p className={styles.noEventDescription}><Alert />No events for {selectedDate && format(selectedDate, 'yyyy-MM-dd')}</p>
                     )}
                 </div>
-                <h2 className={`${styles.calendarHeader} ${nunito_sans.className}`}>{`${currentDate.toLocaleString('default', { month: 'long' })} ${currentYear}`}</h2>
+
+
+                <h2 className={`${styles.calendarHeader} ${nunito_sans.className}`}>
+                    {`${format(currentDate, 'MMMM')} ${currentYear}`}
+                </h2>
+
                 <div className={styles.daysContainer}>
                     {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
                         <div key={day} className={` ${nunito_sans.className} ${styles.dayOfWeek}`}>
@@ -149,7 +134,6 @@ const Calendar = () => {
                     {generateCalendarDays(currentYear, currentMonth)}
                 </div>
             </div>
-
         </div>
     );
 };

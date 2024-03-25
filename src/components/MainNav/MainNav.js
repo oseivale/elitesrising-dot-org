@@ -50,8 +50,6 @@ export function MainNav({ navLinks }) {
         };
     }, []); // Empty dependency array ensures that this effect runs only once on mount
 
-
-    console.log('scrollY', scrollY)
     const toggleOpen = () => {
         setOpen(!open)
     }
