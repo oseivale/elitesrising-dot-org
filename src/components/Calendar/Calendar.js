@@ -25,23 +25,25 @@ const Calendar = () => {
 
     const filterEventsByDate = (events, date) => {
         const filteredEvents = events.filter(event => {
-            console.log('events line 28', events)
             const eventDate = new Date(event.formattedDate);
-            console.log('eventDate line 30', eventDate)
+            console.log('filteredEvents', new Date('2024-03-25'))
             return isSameDay(eventDate, date);
         });
 
-        console.log('filteredEvents', filteredEvents)
+        
 
         return filteredEvents.length > 0 ? filteredEvents : null;
     };
 
     const handleDayClick = (day) => {
+        console.log('dayyyy', day)
         setSelectedDate(day);
         const eventsForSelectedDate = filterEventsByDate(events, day);
         setSelectedEvents(eventsForSelectedDate);
         setEventsForSelectedDate(eventsForSelectedDate);
     };
+
+    console.log('selectedDate', selectedDate)
 
     const generateCalendarDays = (year, month) => {
         const days = [];
